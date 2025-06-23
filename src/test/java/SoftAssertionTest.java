@@ -20,8 +20,8 @@ public class SoftAssertionTest {
 void  selenideTest(){
         open("/selenide/selenide");
         $("#wiki-tab").click();
-        $(".markdown-body").shouldHave(text("Soft assertions")).shouldBe(visible);
-        $(".markdown-body").$(byText("Soft assertions")).click();
+        $("#wiki-pages-filter").setValue("SoftAssertions").pressEnter();
+        $(byText("SoftAssertions")).shouldHave(visible).click();
         $("#user-content-3-using-junit5-extend-test-class").scrollTo();
         $(".markdown-body").shouldHave(text("3. Using JUnit5 extend test class:"));
 
