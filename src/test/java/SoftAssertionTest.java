@@ -22,6 +22,7 @@ void  selenideTest(){
         open("/selenide/selenide");
         $("#wiki-tab").click();
         $(".js-wiki-more-pages-link").click();
+        $("#wiki-pages-box").shouldHave(text("SoftAssertions")).shouldBe(visible);
         $(byText("SoftAssertions")).click();
         $(".markdown-body").shouldHave(text("3. Using JUnit5 extend test class:"));
 
