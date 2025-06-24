@@ -1,10 +1,11 @@
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SoftAssertionTest {
@@ -20,9 +21,8 @@ public class SoftAssertionTest {
 void  selenideTest(){
         open("/selenide/selenide");
         $("#wiki-tab").click();
-        $("#wiki-pages-filter").setValue("SoftAssertions").pressEnter();
-        $(byText("SoftAssertions")).shouldHave(visible).click();
-        $("#user-content-3-using-junit5-extend-test-class").scrollTo();
+        $(".js-wiki-more-pages-link").click();
+        $(byText("SoftAssertions")).click();
         $(".markdown-body").shouldHave(text("3. Using JUnit5 extend test class:"));
 
         String textJunit5 = """
